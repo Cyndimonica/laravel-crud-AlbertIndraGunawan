@@ -70,5 +70,17 @@ class ProdiController extends Controller
     {
         return view('prodi.edit), ['prodi' => $prodi]);
     }
+    
+    public function update(Request $request, prodi $prodi)
+    {
+        //dump($request->all());
+        //dump($prodi)
+        $validateData = $request->validate([
+            'nama' => 'required|min:5|max:20',
+        ]);
 
+        prodi::where('id', $prodi->id)->update($validateData);
+        $request->session()->flash('into', "Data Prodi $prodi->nama berhasil diubah");
+        return redirect()->route('prodi.index');
+    }
 }
