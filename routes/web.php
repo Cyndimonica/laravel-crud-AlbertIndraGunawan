@@ -61,3 +61,4 @@ Route::get('/prodi/{id}', [ProdiController::class,'show'])->name('prodi.show');
 Route::get('/prodi/{prodi}', [ProdiController::class,'edit'])->name('prodi.edit');
 
 Route::pacth('/prodi/{prodi}', [ProdiController::class,'update'])->name('prodi.update');
+
